@@ -1,10 +1,17 @@
 import { Component } from '@angular/core';
+import { CartService } from '../cart.service';
 import productData from '../product.json';  
 
-interface Product {  
+export interface Product {
   id: Number;  
   name: String;  
-  specifications: any;
+  specifications: {
+		color: string;
+		weight: string;
+		storage: string;
+		price: any;
+    quantity: any;
+	};
   picture: String;  
 }  
 
@@ -16,10 +23,15 @@ interface Product {
 
 export class MainComponent {
 
+  constructor(
+    private cartService: CartService
+  ) { }
+
   products: Product[] = productData;  
 
-  share() {
-    window.alert('The product has been shared!');
+  share(product: Product) {
+    this.cartService.addToCart(product);
+    window.alert('The product has been added to the cart!');
   }
 
 }

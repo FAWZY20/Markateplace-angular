@@ -1,1 +1,58 @@
 <app-header></app-header>
+<ng-template [ngIf]="items" [ngIfElse]="elseTemplate">
+    <div class="container">
+        <div class="container-fluid">
+            <div class="row">
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Product</th>
+                                <th scope="col">Picture</th>
+                                <th scope="col">Specification</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Modify</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let item of items">
+                            <tr>
+                                <td>{{ item.name }}</td>
+                                <td><img src={{item.picture}} alt="image" width="50" height="50" /></td>
+                                <td>
+                                    <ul>
+                                        <li>Color : {{item.specifications.color}}</li>
+                                        <li>Weight : {{item.specifications.weight}}</li>
+                                        <li>Storage : {{item.specifications.storage}}</li>
+                                    </ul>
+                                </td>
+                                <td>{{item.specifications.quantity}}</td>
+                                <td>{{item.specifications.price}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-primary btn-sm btn-modify">Add Product +</button> <button type="button" class="btn btn-primary btn-sm">Delete Product -</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" class="btn btn-danger" (click)="delete()">Delete All</button>
+                </div>
+                <div class="cart-item">
+                    <div class="cart-item-list">
+                        <p>You order :</p>
+                        <ul *ngFor="let item of items">
+                            <li>{{ item.name }} : {{ item.specifications.price }}</li>
+                        </ul>
+                    </div>
+                    <div class="cart-item-total">
+                        <p>Total {{sumCart}} $</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #elseTemplate>
+    <div class="alternative">
+        Visible when display is false
+    </div>
+</ng-template>
