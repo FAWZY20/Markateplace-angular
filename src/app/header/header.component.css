@@ -1,0 +1,7 @@
+.menu{
+    background-color: blue !important;
+}
+
+.nav-link, .navbar-brand{
+    color: white;
+}

@@ -1,0 +1,18 @@
+<app-header></app-header>
+<div class="product">
+    <div class="product-content" *ngFor="let product of products">
+        <div>
+            <img class="product-img" src="{{product.picture}}" alt="" />
+            <h2>{{product.name}} </h2>
+        </div>
+        <div>
+            <p>Specifications</p>
+            <ul>
+                <li>color : {{product.specifications.color}}</li>
+                <li>weight : {{product.specifications.weight}} </li>
+                <li>storage : {{product.specifications.storage}} </li>
+                <li>Price : {{product.specifications.price}} </li>
+            </ul>
+        </div>
+    </div>
+</div>
