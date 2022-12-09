@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { HeaderComponent } from './header/header.component';
+import { ProfilViewComponent } from './profil-view/profil-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProfilViewComponent
   ],
   imports: [
     BrowserModule,

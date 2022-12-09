@@ -18,4 +18,8 @@ export class MainComponent {
 
   products: Product[] = productData;  
 
+  share() {
+    window.alert('The product has been shared!');
+  }
+
 }
